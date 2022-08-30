@@ -28,14 +28,17 @@ public class HelloWebfluxSecurityConfig {
 
 	@Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-         return http.authorizeExchange()
-          .pathMatchers("/admin").hasAuthority("ROLE_ADMIN")
-          .anyExchange().authenticated()
+         http.authorizeExchange()
+          .pathMatchers("/").permitAll()
           .and()
+		  .authorizeExchange()
+          .anyExchange().authenticated()
+		  .and()
           .formLogin()
           .and()
-          .csrf().disable()
-          .build();
+          .csrf().disable();
+
+       return http.build();
     }
 
 }
