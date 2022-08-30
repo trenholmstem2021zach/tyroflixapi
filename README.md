@@ -1,2 +1,5 @@
-# tyroflixapi
-Backend API 
+# TyroFlix Backend API 
+
+## Quickstart
+
+``` gradle bootRun  ```
